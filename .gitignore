@@ -1,0 +1,37 @@
+# Build artifacts
+/target
+/Cargo.lock
+
+# Python virtual environment
+/.venv
+/__pycache__
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# PDF test files
+*.pdf
+
+# Temporary files
+*.tmp
+*_preprocessed.pdf
+*_chonker3.json
+
+# Pdfium library
+/lib
+pdfium.dll
+libpdfium.dylib
+libpdfium.so

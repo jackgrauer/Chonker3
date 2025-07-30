@@ -1,0 +1,23 @@
+==============================================================
+                    CHONKER3 VANILLA 1.0
+==============================================================
+
+YOU ARE HERE → This is the VANILLA 1.0 stable version!
+
+Git tag: vanilla-1.0
+Commit: 397db07
+Date: July 30, 2025
+
+This version has:
+✓ Working text rendering
+✓ Fixed font sizes (12pt)
+✓ No widget ID collisions
+✓ Proper PDF coordinates
+✓ 86% default zoom
+✓ Text padding to prevent clipping
+
+To return to this version from anywhere:
+    git checkout vanilla-1.0
+
+DO NOT DELETE THIS FILE - It marks the vanilla checkpoint!
+==============================================================

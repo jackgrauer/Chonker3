@@ -4,7 +4,7 @@
 // See VERSION.md for details
 
 use eframe::egui;
-use egui::{Color32, RichText, Vec2, ColorImage, TextureHandle, ScrollArea};
+use egui::{Color32, RichText, Vec2, ColorImage, TextureHandle, ScrollArea, Pos2};
 use std::path::PathBuf;
 use std::sync::{Arc, Mutex};
 use pdfium_render::prelude::*;
@@ -33,6 +33,16 @@ struct Chonker3App {
     pdf_page_count: usize,
     zoom_level: f32,
     pan_offset: egui::Vec2,
+    search_query: String,
+    show_search: bool,
+    show_help: bool,
+    // Edit and drag support
+    item_offsets: std::collections::HashMap<String, egui::Vec2>,
+    item_text_overrides: std::collections::HashMap<String, String>,
+    editing_item_id: Option<String>,
+    edit_text: String,
+    dragging_item_id: Option<String>,
+    drag_offset: egui::Vec2,
 }
 
 impl Chonker3App {
@@ -225,19 +235,43 @@ impl Chonker3App {
             }
         }
         
+        let search_results = self.find_search_matches(&items);
+        
         types::DocumentState {
             items,
             page_size: (612.0, 792.0), // Standard US Letter
             zoom: self.zoom_level,
             offset: (self.pan_offset.x, self.pan_offset.y),
             selected_item: None,
-            editing_item: None,
+            editing_item: self.editing_item_id.clone(),
+            search_query: self.search_query.clone(),
+            search_results,
+            item_offsets: self.item_offsets.iter()
+                .map(|(k, v)| (k.clone(), (v.x, v.y)))
+                .collect(),
+            item_text_overrides: self.item_text_overrides.clone(),
         }
+    }
+    
+    fn find_search_matches(&self, items: &[types::DocumentItem]) -> Vec<String> {
+        if self.search_query.is_empty() {
+            return Vec::new();
+        }
+        
+        let query = self.search_query.to_lowercase();
+        items.iter()
+            .filter(|item| item.content.to_lowercase().contains(&query))
+            .map(|item| item.id.clone())
+            .collect()
     }
 }
 
 impl eframe::App for Chonker3App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        // Handle keyboard shortcuts
+        if ctx.input(|i| i.modifiers.command && i.key_pressed(egui::Key::F)) {
+            self.show_search = true;
+        }
         
         
         // Check extraction result
@@ -297,6 +331,24 @@ impl eframe::App for Chonker3App {
                         
                         ui.separator();
                         
+                        // Search button
+                        if ui.button(RichText::new("🔍").size(14.0).color(Color32::WHITE))
+                            .on_hover_text("Search (Ctrl+F)")
+                            .clicked() {
+                            self.show_search = !self.show_search;
+                        }
+                        
+                        ui.separator();
+                        
+                        // Help button
+                        if ui.button(RichText::new("?").size(14.0).color(Color32::WHITE))
+                            .on_hover_text("Help")
+                            .clicked() {
+                            self.show_help = !self.show_help;
+                        }
+                        
+                        ui.separator();
+                        
                         // Zoom controls
                         if ui.button(RichText::new("🔍+").size(14.0).color(Color32::WHITE)).clicked() {
                             self.zoom_level = (self.zoom_level * 1.2).min(3.0);
@@ -341,6 +393,100 @@ impl eframe::App for Chonker3App {
                 });
             });
         });
+        
+        // Search bar (appears below toolbar when active)
+        if self.show_search {
+            egui::TopBottomPanel::top("search_panel")
+                .min_height(40.0)
+                .show(ctx, |ui| {
+                    ui.horizontal(|ui| {
+                        ui.add_space(10.0);
+                        ui.label("Search:");
+                        
+                        let response = ui.add_sized(
+                            Vec2::new(200.0, 20.0),
+                            egui::TextEdit::singleline(&mut self.search_query)
+                        );
+                        
+                        // Focus on search box when it appears
+                        if response.gained_focus() || self.show_search {
+                            response.request_focus();
+                        }
+                        
+                        // Handle Enter key
+                        if response.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
+                            // Search is automatically updated through the binding
+                        }
+                        
+                        // Handle Escape key to close search
+                        if ui.input(|i| i.key_pressed(egui::Key::Escape)) {
+                            self.show_search = false;
+                            self.search_query.clear();
+                        }
+                        
+                        // Clear button
+                        if !self.search_query.is_empty() {
+                            if ui.button("✕").clicked() {
+                                self.search_query.clear();
+                            }
+                        }
+                        
+                        // Match count
+                        if !self.search_query.is_empty() {
+                            let match_count = if let Some(data) = &self.extracted_data {
+                                let document_state = self.convert_to_document_state(data);
+                                document_state.search_results.len()
+                            } else {
+                                0
+                            };
+                            ui.label(format!("{} matches", match_count));
+                        }
+                        
+                        ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                            if ui.button("Close").clicked() {
+                                self.show_search = false;
+                                self.search_query.clear();
+                            }
+                            ui.add_space(10.0);
+                        });
+                    });
+                });
+        }
+        
+        // Help panel (appears as a window when active)
+        if self.show_help {
+            egui::Window::new("Help")
+                .collapsible(false)
+                .resizable(false)
+                .fixed_pos(Pos2::new(400.0, 200.0))
+                .show(ctx, |ui| {
+                    ui.heading("Chonker3 Help");
+                    ui.separator();
+                    
+                    ui.label(RichText::new("Features:").strong());
+                    ui.label("• Click on text to copy it to clipboard");
+                    ui.label("• Use search to find text (highlights in yellow)");
+                    ui.label("• Zoom with buttons or Cmd+scroll");
+                    ui.label("• Pan by dragging the view");
+                    ui.separator();
+                    
+                    ui.label(RichText::new("Keyboard Shortcuts:").strong());
+                    ui.label("• Cmd+F: Open search");
+                    ui.label("• Escape: Close search");
+                    ui.label("• ▶/◀: Navigate pages");
+                    ui.separator();
+                    
+                    ui.label(RichText::new("Tips:").strong());
+                    ui.label("• Extract before viewing for best results");
+                    ui.label("• Some PDFs may have text rendering issues");
+                    ui.label("• Copy text that appears misplaced");
+                    
+                    ui.separator();
+                    if ui.button("Close").clicked() {
+                        self.show_help = false;
+                    }
+                });
+        }
         
         // Central area
         egui::CentralPanel::default().show(ctx, |ui| {

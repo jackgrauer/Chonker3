@@ -8,6 +8,9 @@ pub struct SkiaDocumentCanvas {
     document_state: DocumentState,
     renderer: Option<SkiaRenderer>,
     selected_text: String,
+    edit_text: String,
+    dragging_item_id: Option<String>,
+    drag_start_offset: egui::Vec2,
 }
 
 impl SkiaDocumentCanvas {
@@ -16,6 +19,9 @@ impl SkiaDocumentCanvas {
             document_state,
             renderer: None,
             selected_text: String::new(),
+            edit_text: String::new(),
+            dragging_item_id: None,
+            drag_start_offset: egui::Vec2::ZERO,
         }
     }
     
@@ -154,8 +160,15 @@ impl SkiaDocumentCanvas {
                     return;
                 }
                 
-                // Use black for all text for now - we can add colors later
-                let color = Color32::from_gray(20);
+                // Check if this item is in search results
+                let is_search_match = self.document_state.search_results.contains(&item.id);
+                
+                // Use different color for search matches
+                let color = if is_search_match {
+                    Color32::from_rgb(255, 165, 0) // Orange for highlights
+                } else {
+                    Color32::from_gray(20)
+                };
                 
                 // Choose font size
                 let font_size = (item.font_size * scale).clamp(8.0, 100.0);
@@ -177,6 +190,15 @@ impl SkiaDocumentCanvas {
                     egui::Vec2::new(width, height + text_padding * 2.0)
                 );
                 let clipped_painter = ui.painter().with_clip_rect(clip_rect);
+                
+                // Draw highlight background if this is a search match
+                if is_search_match {
+                    clipped_painter.rect_filled(
+                        clip_rect,
+                        0.0,
+                        Color32::from_rgba_premultiplied(255, 255, 0, 60) // Yellow highlight
+                    );
+                }
                 
                 // Layout text with proper line spacing
                 let galley = clipped_painter.layout(

@@ -37,6 +37,10 @@ pub struct DocumentState {
     pub offset: (f32, f32),
     pub selected_item: Option<String>,
     pub editing_item: Option<String>,
+    pub search_query: String,
+    pub search_results: Vec<String>, // IDs of matching items
+    pub item_offsets: std::collections::HashMap<String, (f32, f32)>,
+    pub item_text_overrides: std::collections::HashMap<String, String>,
 }
 
 impl Default for DocumentState {
@@ -48,6 +52,10 @@ impl Default for DocumentState {
             offset: (0.0, 0.0),
             selected_item: None,
             editing_item: None,
+            search_query: String::new(),
+            search_results: Vec::new(),
+            item_offsets: std::collections::HashMap::new(),
+            item_text_overrides: std::collections::HashMap::new(),
         }
     }
 }

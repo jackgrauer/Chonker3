@@ -41,6 +41,7 @@ pub struct DocumentState {
     pub search_results: Vec<String>, // IDs of matching items
     pub item_offsets: std::collections::HashMap<String, (f32, f32)>,
     pub item_text_overrides: std::collections::HashMap<String, String>,
+    pub text_padding_factor: f32, // Multiplier for text bounds padding
 }
 
 impl Default for DocumentState {
@@ -56,6 +57,7 @@ impl Default for DocumentState {
             search_results: Vec::new(),
             item_offsets: std::collections::HashMap::new(),
             item_text_overrides: std::collections::HashMap::new(),
+            text_padding_factor: 1.0, // Default padding factor
         }
     }
 }

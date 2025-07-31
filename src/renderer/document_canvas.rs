@@ -146,11 +146,15 @@ impl DocumentCanvas {
                     .cloned()
                     .unwrap_or_else(|| item.content.clone());
                 
-                // Create clipped painter to ensure text stays in bounds
-                let text_padding = 3.0; // Extra space for text rendering
+                // Create clipped painter with proper padding to prevent text clipping
+                // PDF bounding boxes are often too tight for actual rendered text
+                let horizontal_padding = 5.0; // Fixed padding for sides
+                let vertical_padding = height * 0.2; // 20% padding for height to handle descenders
+                let extra_width = width * 0.1; // 10% extra width for italics and font variations
+                
                 let clip_rect = egui::Rect::from_min_size(
-                    Pos2::new(x + rect.left(), y + rect.top() - text_padding),
-                    egui::Vec2::new(width, height + text_padding * 2.0)
+                    Pos2::new(x + rect.left() - horizontal_padding, y + rect.top() - vertical_padding),
+                    egui::Vec2::new(width + extra_width + horizontal_padding * 2.0, height + vertical_padding * 2.0)
                 );
                 let clipped_painter = ui.painter().with_clip_rect(clip_rect);
                 
@@ -198,9 +202,14 @@ impl DocumentCanvas {
             let width = item.bbox.width as f32 * scale;
             let height = item.bbox.height.abs() as f32 * scale;
             
+            // Use the same expanded bounds for click detection
+            let horizontal_padding = 5.0;
+            let vertical_padding = height * 0.2;
+            let extra_width = width * 0.1;
+            
             let item_rect = egui::Rect::from_min_size(
-                Pos2::new(x, y),
-                egui::Vec2::new(width, height)
+                Pos2::new(x - horizontal_padding, y - vertical_padding),
+                egui::Vec2::new(width + extra_width + horizontal_padding * 2.0, height + vertical_padding * 2.0)
             );
             
             if item_rect.contains(click_pos) {

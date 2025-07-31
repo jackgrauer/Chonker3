@@ -246,6 +246,7 @@ impl Chonker3App {
                 .map(|(k, v)| (k.clone(), (v.x, v.y)))
                 .collect(),
             item_text_overrides: self.item_text_overrides.clone(),
+            text_padding_factor: 1.0,
         }
     }
     

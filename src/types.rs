@@ -10,6 +10,8 @@ pub struct DocumentItem {
     pub font_size: f32,
     pub color: (u8, u8, u8), // RGB
     pub item_type: ItemType,
+    pub bold: bool,
+    pub italic: bool,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -42,6 +44,10 @@ pub struct DocumentState {
     pub item_offsets: std::collections::HashMap<String, (f32, f32)>,
     pub item_text_overrides: std::collections::HashMap<String, String>,
     pub text_padding_factor: f32, // Multiplier for text bounds padding
+    pub edit_mode: bool,
+    pub dragging_item: Option<String>, // ID of item being dragged
+    pub column_count: usize,
+    pub column_boundaries: Vec<f32>, // X coordinates of column boundaries
 }
 
 impl Default for DocumentState {
@@ -58,6 +64,10 @@ impl Default for DocumentState {
             item_offsets: std::collections::HashMap::new(),
             item_text_overrides: std::collections::HashMap::new(),
             text_padding_factor: 1.0, // Default padding factor
+            edit_mode: false,
+            dragging_item: None,
+            column_count: 1,
+            column_boundaries: Vec::new(),
         }
     }
 }

@@ -36,6 +36,8 @@ struct Chonker3App {
     search_query: String,
     show_search: bool,
     show_help: bool,
+    editing_item_id: Option<String>,
+    edit_text_buffer: String,
     // Text customization support
     item_offsets: std::collections::HashMap<String, egui::Vec2>,
     item_text_overrides: std::collections::HashMap<String, String>,
@@ -72,7 +74,6 @@ impl Chonker3App {
             self.pdf_bytes = Some(bytes);
             self.pdf_page = 0;
             self.pdf_texture = None;
-            
         }
     }
     
@@ -184,20 +185,18 @@ impl Chonker3App {
                             _ => ItemType::Text,
                         };
                         
-                        // Extract font size from attributes.style.font_size if available
-                        let font_size = if let Some(attributes) = json_item.get("attributes") {
+                        // Extract font size and style from attributes.style if available
+                        let (font_size, bold, italic) = if let Some(attributes) = json_item.get("attributes") {
                             if let Some(style) = attributes.get("style") {
-                                if let Some(fs) = style.get("font_size").and_then(|v| v.as_f64()) {
-                                    fs as f32
-                                } else {
-                                    // Fallback: estimate from height if no font size in metadata
-                                    12.0 // Default reasonable font size
-                                }
+                                let fs = style.get("font_size").and_then(|v| v.as_f64()).unwrap_or(12.0) as f32;
+                                let b = style.get("bold").and_then(|v| v.as_bool()).unwrap_or(false);
+                                let i = style.get("italic").and_then(|v| v.as_bool()).unwrap_or(false);
+                                (fs, b, i)
                             } else {
-                                12.0 // Default
+                                (12.0, false, false)
                             }
                         } else {
-                            12.0 // Default
+                            (12.0, false, false)
                         };
                         
                         // Generate item ID
@@ -223,6 +222,8 @@ impl Chonker3App {
                                 _ => (0, 0, 0),
                             },
                             item_type,
+                            bold,
+                            italic,
                         };
                         
                         items.push(doc_item);
@@ -232,6 +233,25 @@ impl Chonker3App {
         }
         
         let search_results = self.find_search_matches(&items);
+        
+        // Extract column info for current page
+        let (column_count, column_boundaries) = if let Some(pages) = json_data.get("pages").and_then(|v| v.as_array()) {
+            if let Some(page) = pages.get(self.pdf_page) {
+                let count = page.get("columns").and_then(|v| v.as_u64()).unwrap_or(1) as usize;
+                let boundaries = if let Some(bounds) = page.get("column_boundaries").and_then(|v| v.as_array()) {
+                    bounds.iter()
+                        .filter_map(|v| v.as_f64().map(|f| f as f32))
+                        .collect()
+                } else {
+                    Vec::new()
+                };
+                (count, boundaries)
+            } else {
+                (1, Vec::new())
+            }
+        } else {
+            (1, Vec::new())
+        };
         
         types::DocumentState {
             items,
@@ -247,6 +267,10 @@ impl Chonker3App {
                 .collect(),
             item_text_overrides: self.item_text_overrides.clone(),
             text_padding_factor: 1.0,
+            edit_mode: false,
+            dragging_item: None,
+            column_count,
+            column_boundaries,
         }
     }
     
@@ -450,6 +474,47 @@ impl eframe::App for Chonker3App {
                 });
         }
         
+        // Text edit dialog
+        if let Some(item_id) = &self.editing_item_id.clone() {
+            egui::Window::new("Edit Text")
+                .collapsible(false)
+                .resizable(true)
+                .default_width(400.0)
+                .show(ctx, |ui| {
+                    ui.heading("Edit Text Content");
+                    ui.separator();
+                    
+                    ui.label(format!("Item ID: {}", item_id));
+                    ui.add_space(10.0);
+                    
+                    ui.label("Text:");
+                    let response = ui.add(
+                        egui::TextEdit::multiline(&mut self.edit_text_buffer)
+                            .desired_width(f32::INFINITY)
+                            .desired_rows(4)
+                    );
+                    
+                    // Focus on text edit
+                    if response.gained_focus() {
+                        response.request_focus();
+                    }
+                    
+                    ui.separator();
+                    ui.horizontal(|ui| {
+                        if ui.button("Save").clicked() {
+                            self.item_text_overrides.insert(item_id.clone(), self.edit_text_buffer.clone());
+                            self.editing_item_id = None;
+                            self.edit_text_buffer.clear();
+                        }
+                        
+                        if ui.button("Cancel").clicked() || ui.input(|i| i.key_pressed(egui::Key::Escape)) {
+                            self.editing_item_id = None;
+                            self.edit_text_buffer.clear();
+                        }
+                    });
+                });
+        }
+        
         // Help panel (appears as a window when active)
         if self.show_help {
             egui::Window::new("Help")
@@ -461,10 +526,11 @@ impl eframe::App for Chonker3App {
                     ui.separator();
                     
                     ui.label(RichText::new("Features:").strong());
-                    ui.label("• Click on text to copy it to clipboard");
+                    ui.label("• Click once: Copy text to clipboard");
+                    ui.label("• Double-click: Edit text content");
                     ui.label("• Use search to find text (highlights in yellow)");
                     ui.label("• Zoom with buttons or Cmd+scroll");
-                    ui.label("• Pan by dragging the view");
+                    ui.label("• Scroll to move around the document");
                     ui.separator();
                     
                     ui.label(RichText::new("Keyboard Shortcuts:").strong());
@@ -553,10 +619,7 @@ impl eframe::App for Chonker3App {
                                         });
                                     }
                                     
-                                    // Handle panning with mouse drag
-                                    if canvas_response.dragged() {
-                                        self.pan_offset += canvas_response.drag_delta();
-                                    }
+                                    // Panning removed - use scroll only
                                 });
                         } else {
                             ui.centered_and_justified(|ui| {

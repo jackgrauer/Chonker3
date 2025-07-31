@@ -149,6 +149,9 @@ class Chonker2:
         try:
             item_type = type(item).__name__
             
+            # Log the actual types Docling provides for debugging
+            self.logger.debug(f"Docling item type: {item_type}")
+            
             # Base item data
             item_data = {
                 'index': index,
@@ -216,8 +219,10 @@ class Chonker2:
                 item_data['attributes']['caption'] = getattr(item, 'caption', '')
             
             # Extract font and style information if available
+            style_info = {}
+            
+            # Check direct style attribute
             if hasattr(item, 'style'):
-                style_info = {}
                 if hasattr(item.style, 'font_name'):
                     style_info['font'] = str(item.style.font_name)
                 if hasattr(item.style, 'font_size'):
@@ -226,8 +231,31 @@ class Chonker2:
                     style_info['bold'] = bool(item.style.bold)
                 if hasattr(item.style, 'italic'):
                     style_info['italic'] = bool(item.style.italic)
-                if style_info:
-                    item_data['attributes']['style'] = style_info
+            
+            # Also check for text_style attribute (some Docling versions)
+            if hasattr(item, 'text_style'):
+                if hasattr(item.text_style, 'is_bold'):
+                    style_info['bold'] = bool(item.text_style.is_bold)
+                if hasattr(item.text_style, 'is_italic'):
+                    style_info['italic'] = bool(item.text_style.is_italic)
+                if hasattr(item.text_style, 'font_size'):
+                    style_info['font_size'] = float(item.text_style.font_size)
+            
+            # Check in provenance data for style info
+            if hasattr(item, 'prov') and item.prov:
+                for prov in item.prov:
+                    if hasattr(prov, 'text_style'):
+                        ts = prov.text_style
+                        if hasattr(ts, 'font_size') and 'font_size' not in style_info:
+                            style_info['font_size'] = float(ts.font_size)
+                        if hasattr(ts, 'font_weight') and 'bold' not in style_info:
+                            # Font weight > 400 typically indicates bold
+                            style_info['bold'] = ts.font_weight > 400
+                        if hasattr(ts, 'font_style') and 'italic' not in style_info:
+                            style_info['italic'] = ts.font_style == 'italic'
+            
+            if style_info:
+                item_data['attributes']['style'] = style_info
             
             return item_data
             
@@ -316,38 +344,70 @@ class Chonker2:
     
     def _detect_columns_and_order(self, items_by_page: Dict[int, List[Dict]], document_data: Dict):
         """Detect multi-column layouts and fix reading order"""
+        
         for page_no, page_items in items_by_page.items():
             if not page_items:
                 continue
-                
-            # Sort items by vertical position first
-            page_items.sort(key=lambda x: (
-                x.get('bbox', {}).get('top', 0) if x.get('bbox') else 0,
-                x.get('bbox', {}).get('left', 0) if x.get('bbox') else 0
-            ))
             
-            # Detect potential columns by analyzing x-coordinates
-            x_positions = []
-            for item in page_items:
-                if item.get('bbox') and item['bbox'].get('left') is not None:
-                    x_positions.append(item['bbox']['left'])
+            # Get items with valid bounding boxes
+            items_with_bbox = [item for item in page_items if item.get('bbox')]
             
-            if len(x_positions) > 10:  # Need enough items to detect pattern
-                # Simple column detection: look for gaps in x-distribution
-                x_positions.sort()
-                gaps = []
-                for i in range(1, len(x_positions)):
-                    gap = x_positions[i] - x_positions[i-1]
-                    if gap > 50:  # Significant gap might indicate column boundary
-                        gaps.append((x_positions[i-1], x_positions[i]))
+            if len(items_with_bbox) < 5:
+                continue
                 
-                # If we found column gaps, add metadata
-                if gaps:
-                    self.logger.info(f"Page {page_no}: Detected {len(gaps)+1} potential columns")
-                    # Add column info to page metadata
-                    if page_no < len(document_data['pages']):
-                        document_data['pages'][page_no]['columns'] = len(gaps) + 1
-                        document_data['pages'][page_no]['column_gaps'] = gaps
+            # Analyze x-coordinate distribution to detect columns
+            x_positions = [item['bbox']['left'] for item in items_with_bbox]
+            x_positions.sort()
+            
+            # Find gaps between x-positions to identify column boundaries
+            gaps = []
+            column_threshold = 50  # Minimum gap to consider as column boundary
+            
+            for i in range(1, len(x_positions)):
+                gap_size = x_positions[i] - x_positions[i-1]
+                if gap_size > column_threshold:
+                    gaps.append((x_positions[i-1] + gap_size/2, gap_size))
+            
+            # If we found significant gaps, we have columns
+            if gaps:
+                # Define column boundaries
+                column_boundaries = [0]  # Start of first column
+                column_boundaries.extend([gap[0] for gap in gaps])
+                column_boundaries.append(float('inf'))  # End of last column
+                
+                # Assign items to columns and sort by reading order
+                for item in items_with_bbox:
+                    x = item['bbox']['left']
+                    
+                    # Find which column this item belongs to
+                    for col_idx in range(len(column_boundaries) - 1):
+                        if column_boundaries[col_idx] <= x < column_boundaries[col_idx + 1]:
+                            item['attributes']['column'] = col_idx
+                            break
+                
+                # Re-sort items: by row first (using y-coordinate bands), then by column
+                # This ensures proper reading order for multi-column layouts
+                row_height_estimate = 20  # Approximate line height
+                
+                for item in items_with_bbox:
+                    item['attributes']['row_band'] = int(item['bbox']['top'] / row_height_estimate)
+                
+                # Sort by row band first, then by column
+                items_with_bbox.sort(key=lambda x: (
+                    x['attributes'].get('row_band', 0),
+                    x['attributes'].get('column', 0)
+                ))
+                
+                # Update reading order
+                for idx, item in enumerate(items_with_bbox):
+                    item['attributes']['reading_order'] = idx
+                
+                self.logger.info(f"Page {page_no}: Detected {len(gaps) + 1} columns")
+                
+                # Add column info to page metadata
+                if page_no < len(document_data['pages']):
+                    document_data['pages'][page_no]['columns'] = len(gaps) + 1
+                    document_data['pages'][page_no]['column_boundaries'] = column_boundaries[:-1]
     
     def batch_process(self, pdf_files: List[str], output_dir: Optional[str] = None):
         """Process multiple PDFs"""

@@ -5,7 +5,7 @@ A stable PDF viewer with text extraction and rendering.
 ## Version: Vanilla 1.0
 
 This is the clean baseline version with:
-- Skia-based text rendering
+- Egui-based text rendering
 - Fixed font sizes (no more random sizing)
 - Proper coordinate conversion
 - 1,061 lines of clean code

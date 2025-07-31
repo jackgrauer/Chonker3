@@ -8,7 +8,7 @@
 This is the stable vanilla version of Chonker3 with all text rendering issues resolved.
 
 ## What's Working in Vanilla 1.0:
-- ✅ Skia-based PDF renderer
+- ✅ Egui-based text renderer
 - ✅ Consistent 12pt font sizing
 - ✅ Proper PDF coordinate conversion
 - ✅ Text selection and copying

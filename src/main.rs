@@ -14,7 +14,7 @@ use extractor::{extract_pdf, ExtractionResult};
 
 mod types;
 
-mod skia_renderer;
+mod renderer;
 
 const TEAL: Color32 = Color32::from_rgb(0x1A, 0xBC, 0x9C);
 
@@ -36,13 +36,9 @@ struct Chonker3App {
     search_query: String,
     show_search: bool,
     show_help: bool,
-    // Edit and drag support
+    // Text customization support
     item_offsets: std::collections::HashMap<String, egui::Vec2>,
     item_text_overrides: std::collections::HashMap<String, String>,
-    editing_item_id: Option<String>,
-    edit_text: String,
-    dragging_item_id: Option<String>,
-    drag_offset: egui::Vec2,
 }
 
 impl Chonker3App {
@@ -243,7 +239,7 @@ impl Chonker3App {
             zoom: self.zoom_level,
             offset: (self.pan_offset.x, self.pan_offset.y),
             selected_item: None,
-            editing_item: self.editing_item_id.clone(),
+            editing_item: None,
             search_query: self.search_query.clone(),
             search_results,
             item_offsets: self.item_offsets.iter()
@@ -524,7 +520,7 @@ impl eframe::App for Chonker3App {
                         );
                         
                         if let Some(data) = self.extracted_data.clone() {
-                            use crate::skia_renderer::SkiaDocumentCanvas;
+                            use crate::renderer::DocumentCanvas;
                             
                             let document_state = self.convert_to_document_state(&data);
                             
@@ -533,7 +529,7 @@ impl eframe::App for Chonker3App {
                                 .id_salt("extracted_content_scroll")
                                 .auto_shrink([false, false])
                                 .show(ui, |ui| {
-                                    let canvas = SkiaDocumentCanvas::new(document_state)
+                                    let canvas = DocumentCanvas::new(document_state)
                                         .with_zoom(self.zoom_level);
                                     
                                     let canvas_response = ui.add(canvas);

@@ -21,6 +21,16 @@ class EnhancedChonker2(Chonker2):
     def __init__(self, verbose: bool = False, preprocess: bool = True):
         super().__init__(verbose)
         self.preprocess = preprocess
+        
+        # Set up more detailed logging
+        if verbose:
+            import logging
+            # Configure root logger to show more details
+            logging.basicConfig(
+                level=logging.DEBUG,
+                format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                force=True
+            )
     
     def enhance_image(self, image_path, output_path):
         """Apply image enhancement for better OCR"""
@@ -210,8 +220,23 @@ class EnhancedChonker2(Chonker2):
         # Preprocess PDF if enabled
         processed_pdf = self.preprocess_pdf(pdf_path)
         
+        # Add extra logging for OCR engine detection
+        import logging
+        # Temporarily increase logging level to see OCR details
+        docling_logger = logging.getLogger('docling')
+        original_level = docling_logger.level
+        docling_logger.setLevel(logging.DEBUG)
+        
+        # Also log pypdftools and other OCR-related modules
+        for logger_name in ['docling.backend', 'docling.pipeline', 'pypdfium2', 'ocrmac', 'tesseract', 'rapidocr', 'easyocr']:
+            logger = logging.getLogger(logger_name)
+            logger.setLevel(logging.DEBUG)
+        
         # Extract using parent class
         result = super().extract_to_json(processed_pdf, output_path)
+        
+        # Restore original logging level
+        docling_logger.setLevel(original_level)
         
         # Post-process to merge nearby text
         if result and 'items' in result:

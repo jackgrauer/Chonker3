@@ -26,25 +26,42 @@ try:
     # Get PDF path from command line
     pdf_path = sys.argv[1]
     
-    # Try to use enhanced chonker2 with preprocessing first
+    # Try to use enhanced chonker2 with Apple Vision forced
     try:
+        # Hide EasyOCR to force Apple Vision
+        import sys
+        class HideEasyOCR:
+            def find_module(self, fullname, path=None):
+                if fullname == 'easyocr' or fullname.startswith('easyocr.'):
+                    return self
+                return None
+            def load_module(self, fullname):
+                raise ImportError(f"EasyOCR hidden to force Apple Vision usage")
+        sys.meta_path.insert(0, HideEasyOCR())
+        
         from enhanced_chonker2 import EnhancedChonker2
         use_enhanced = True
-        print(f"DEBUG: Using Enhanced Docling extractor with preprocessing", file=sys.stderr)
+        print(f"DEBUG: Using Enhanced Docling with Apple Vision (EasyOCR hidden)", file=sys.stderr)
     except ImportError as e1:
-        # Try regular chonker2
+        # Try regular enhanced chonker2
         try:
-            from chonker2 import Chonker2
-            use_enhanced = False
-            use_docling = True
-            print(f"DEBUG: Using regular Docling extractor", file=sys.stderr)
+            from enhanced_chonker2 import EnhancedChonker2
+            use_enhanced = True
+            print(f"DEBUG: Using Enhanced Docling extractor with preprocessing", file=sys.stderr)
         except ImportError as e2:
-            # Fall back to simple extractor
-            print(f"DEBUG: Docling import failed: {e2}", file=sys.stderr)
-            from simple_extractor import extract_pdf_with_fonts
-            use_enhanced = False
-            use_docling = False
-            print(f"DEBUG: Using simple extractor", file=sys.stderr)
+            # Try regular chonker2
+            try:
+                from chonker2 import Chonker2
+                use_enhanced = False
+                use_docling = True
+                print(f"DEBUG: Using regular Docling extractor", file=sys.stderr)
+            except ImportError as e3:
+                # Fall back to simple extractor
+                print(f"DEBUG: Docling import failed: {e3}", file=sys.stderr)
+                from simple_extractor import extract_pdf_with_fonts
+                use_enhanced = False
+                use_docling = False
+                print(f"DEBUG: Using simple extractor", file=sys.stderr)
     
     # TEMPORARY: Force simple extractor for testing
     if '--force-simple' in str(pdf_path):

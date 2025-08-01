@@ -1,0 +1,23 @@
+EXTRACTION ANALYSIS REPORT
+============================================================
+
+JSON file: test_extraction.json
+Analysis time: 2025-07-31 22:37:47.277265
+
+SUMMARY
+------------------------------
+Total items: 74
+Total pages: 1
+Issues found: 0
+Warnings: 3
+
+WARNINGS (may affect quality)
+------------------------------
+⚠️  Found 2 empty text items
+⚠️  Many ordering issues (13) - items may not be in reading order
+⚠️  Many items missing font information
+
+RECOMMENDATIONS
+------------------------------
+✅ Extraction appears to be working correctly!
+   Any display issues are likely in the rendering (Chonker3) side.

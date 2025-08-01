@@ -26,14 +26,32 @@ try:
     # Get PDF path from command line
     pdf_path = sys.argv[1]
     
-    # Try to use chonker2 with Docling first
+    # Try to use enhanced chonker2 with preprocessing first
     try:
-        from chonker2 import Chonker2
-        use_docling = True
-    except ImportError:
-        # Fall back to simple extractor
+        from enhanced_chonker2 import EnhancedChonker2
+        use_enhanced = True
+        print(f"DEBUG: Using Enhanced Docling extractor with preprocessing", file=sys.stderr)
+    except ImportError as e1:
+        # Try regular chonker2
+        try:
+            from chonker2 import Chonker2
+            use_enhanced = False
+            use_docling = True
+            print(f"DEBUG: Using regular Docling extractor", file=sys.stderr)
+        except ImportError as e2:
+            # Fall back to simple extractor
+            print(f"DEBUG: Docling import failed: {e2}", file=sys.stderr)
+            from simple_extractor import extract_pdf_with_fonts
+            use_enhanced = False
+            use_docling = False
+            print(f"DEBUG: Using simple extractor", file=sys.stderr)
+    
+    # TEMPORARY: Force simple extractor for testing
+    if '--force-simple' in str(pdf_path):
         from simple_extractor import extract_pdf_with_fonts
+        use_enhanced = False
         use_docling = False
+        print(f"DEBUG: FORCED simple extractor", file=sys.stderr)
     
     # No preprocessing - use original PDF directly
     pdf_to_extract = pdf_path
@@ -41,8 +59,12 @@ try:
     # Extract from PDF
     temp_json = tempfile.mktemp(suffix='_chonker3.json')
     
-    if use_docling:
-        # Use Docling extractor
+    if use_enhanced:
+        # Use Enhanced Docling extractor with preprocessing
+        extractor = EnhancedChonker2(verbose=False, preprocess=True)
+        data = extractor.extract_to_json(pdf_to_extract, temp_json)
+    elif use_docling:
+        # Use regular Docling extractor
         extractor = Chonker2(verbose=False)
         data = extractor.extract_to_json(pdf_to_extract, temp_json)
     else:
@@ -58,7 +80,8 @@ try:
         'json_path': temp_json,
         'items': len(data.get('items', [])),
         'pages': len(data.get('pages', [])),
-        'tables': len(data.get('tables', []))
+        'tables': len(data.get('tables', [])),
+        'extractor_used': 'enhanced' if use_enhanced else ('docling' if use_docling else 'simple')
     }
     
     print(json.dumps(result))

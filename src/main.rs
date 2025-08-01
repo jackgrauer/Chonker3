@@ -165,6 +165,27 @@ impl Chonker3App {
                         bbox.get("width").and_then(|v| v.as_f64()),
                         bbox.get("height").and_then(|v| v.as_f64()),
                     ) {
+                        // Check coordinate origin
+                        let coord_origin = bbox.get("coord_origin")
+                            .and_then(|v| v.as_str())
+                            .unwrap_or("TOPLEFT");
+                        
+                        // Convert coordinates if needed
+                        let (final_top, final_height) = if coord_origin.contains("BOTTOMLEFT") {
+                            // Convert from BOTTOMLEFT to TOPLEFT
+                            // In BOTTOMLEFT: top is the upper edge, bottom is lower edge
+                            // We need to convert to TOPLEFT where Y increases downward
+                            let page_height = json_data.get("pages")
+                                .and_then(|pages| pages.as_array())
+                                .and_then(|pages| pages.get(self.pdf_page))
+                                .and_then(|page| page.get("height"))
+                                .and_then(|h| h.as_f64())
+                                .unwrap_or(792.0);
+                            // top in BOTTOMLEFT is the upper edge, so we convert it
+                            (page_height - top, height)
+                        } else {
+                            (top, height)
+                        };
                         // Extract content
                         let content = json_item.get("content")
                             .or_else(|| json_item.get("text"))
@@ -182,6 +203,9 @@ impl Chonker3App {
                             "TitleItem" => ItemType::Title,
                             "SectionHeaderItem" => ItemType::Header,
                             "TableItem" => ItemType::Table,
+                            "FormLabel" => ItemType::FormLabel,
+                            "FormField" => ItemType::FormField,
+                            "Checkbox" => ItemType::Checkbox,
                             _ => ItemType::Text,
                         };
                         
@@ -193,17 +217,31 @@ impl Chonker3App {
                                 let i = style.get("italic").and_then(|v| v.as_bool()).unwrap_or(false);
                                 (fs, b, i)
                             } else {
-                                (12.0, false, false)
+                                // Use reasonable defaults based on item type
+                                match item_type {
+                                    ItemType::Title => (16.0, true, false),
+                                    ItemType::Header => (14.0, true, false),
+                                    ItemType::FormLabel => (11.0, false, false),
+                                    ItemType::FormField => (10.0, false, false),
+                                    _ => (11.0, false, false),
+                                }
                             }
                         } else {
-                            (12.0, false, false)
+                            // Use reasonable defaults based on item type
+                            match item_type {
+                                ItemType::Title => (16.0, true, false),
+                                ItemType::Header => (14.0, true, false),
+                                ItemType::FormLabel => (11.0, false, false),
+                                ItemType::FormField => (10.0, false, false),
+                                _ => (11.0, false, false),
+                            }
                         };
                         
                         // Generate item ID
                         let item_id = format!("item_{}_{}_{}", 
                             self.pdf_page,
                             (left * 1000.0) as i32,
-                            (top * 1000.0) as i32
+                            (final_top * 1000.0) as i32
                         );
                         
                         // Create document item
@@ -211,9 +249,9 @@ impl Chonker3App {
                             id: item_id,
                             bbox: BoundingBox {
                                 left,
-                                top,
+                                top: final_top,
                                 width,
-                                height: height.abs(),
+                                height: final_height.abs(),
                             },
                             content,
                             font_size,

@@ -1,0 +1,82 @@
+{
+  "total_items": 74,
+  "pages": [
+    {
+      "page_number": 1,
+      "width": 612.0,
+      "height": 792.0
+    }
+  ],
+  "first_5_items": [
+    {
+      "content": "",
+      "bbox": {
+        "left": 57.14295196533203,
+        "top": 739.7628517150879,
+        "right": 110.8487777709961,
+        "bottom": 688.2360000610352,
+        "width": 53.70582580566406,
+        "height": 51.526851654052734,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "type": "FormField",
+      "page": 1
+    },
+    {
+      "content": "CITY OF PHILADELPHIA",
+      "bbox": {
+        "left": 128.33333333333334,
+        "top": 738.6666666666666,
+        "right": 306.6666666666667,
+        "bottom": 721.0,
+        "width": 178.33333333333334,
+        "height": 17.66666666666663,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "type": "SectionHeaderItem",
+      "page": 1
+    },
+    {
+      "content": "DEPARTMENT OF PUBLIC HEALTH PUBLIC HEALTH SERVICES",
+      "bbox": {
+        "left": 132.33333333333334,
+        "top": 721.0,
+        "right": 295.0,
+        "bottom": 698.6666666666666,
+        "width": 162.66666666666666,
+        "height": 22.33333333333337,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "type": "TextItem",
+      "page": 1
+    },
+    {
+      "content": "Air Management Services 321 University Avenue",
+      "bbox": {
+        "left": 411.6666666666667,
+        "top": 740.0,
+        "right": 524.6666666666666,
+        "bottom": 715.6666666666666,
+        "width": 112.99999999999994,
+        "height": 24.33333333333337,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "type": "TextItem",
+      "page": 1
+    },
+    {
+      "content": "Jan 2 4",
+      "bbox": {
+        "left": 337.0,
+        "top": 722.3333333333334,
+        "right": 383.3333333333333,
+        "bottom": 707.6666666666666,
+        "width": 46.333333333333314,
+        "height": 14.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "type": "TextItem",
+      "page": 1
+    }
+  ]
+}

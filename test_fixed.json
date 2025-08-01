@@ -1,0 +1,855 @@
+{
+  "metadata": {
+    "source_file": "/Users/jack/Downloads/righttoknowrequestresultsfortieriidataon4southwes/split_pages/page_0001.pdf",
+    "file_name": "page_0001.pdf",
+    "document_id": "72f87bb88f5dd096",
+    "extraction_timestamp": "2025-07-31T21:32:27.390744",
+    "processing_time": 10.218642,
+    "docling_version": "unknown"
+  },
+  "pages": [
+    {
+      "page_number": 0,
+      "width": 0,
+      "height": 0
+    }
+  ],
+  "items": [
+    {
+      "index": 0,
+      "type": "FormField",
+      "level": 1,
+      "content": "",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "field_type": "text_input"
+      }
+    },
+    {
+      "index": 1,
+      "type": "SectionHeaderItem",
+      "level": 1,
+      "content": "CITY OF PHILADELPHIA",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 2
+      }
+    },
+    {
+      "index": 2,
+      "type": "TextItem",
+      "level": 1,
+      "content": "DEPARTMENT OF PUBLIC HEALTH PUBLIC HEALTH SERVICES",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 3,
+      "type": "TextItem",
+      "level": 1,
+      "content": "Air Management Services 321 University Avenue",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 4,
+      "type": "TextItem",
+      "level": 1,
+      "content": "Jan 2 4",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 5,
+      "type": "TextItem",
+      "level": 1,
+      "content": "AIR MANAGEMENT SERVICES",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 6,
+      "type": "TextItem",
+      "level": 1,
+      "content": "(215) 685-7593",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 7,
+      "type": "FormLabel",
+      "level": 1,
+      "content": "Phone: (215) 685-7572",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "possible_form_field": true
+      }
+    },
+    {
+      "index": 8,
+      "type": "TextItem",
+      "level": 1,
+      "content": "SOURCE REGISTRATI",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 9,
+      "type": "SectionHeaderItem",
+      "level": 1,
+      "content": "SYNTHETIC MINOR OPERATING PERMIT APPLICATION",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 2
+      }
+    },
+    {
+      "index": 10,
+      "type": "FormField",
+      "level": 1,
+      "content": "",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "field_type": "text_input"
+      }
+    },
+    {
+      "index": 11,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "Section 1: General Information",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 12,
+      "type": "TextItem",
+      "level": 2,
+      "content": "FOR OFFICIAL USE ONLY",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 13,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.1 Application Type",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 14,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "City OP #:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 15,
+      "type": "TextItem",
+      "level": 2,
+      "content": "60 /",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 16,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Type of permit for which application is made:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 17,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Reviewed By:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 18,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Initial",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 19,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Synthetic Minor",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 20,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Date:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 21,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Renewal",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 22,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Natural   Minor",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 23,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Comments:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 24,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Modification",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 25,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Other:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 26,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.2 Plant Information",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 27,
+      "type": "TextItem",
+      "level": 2,
+      "content": "13-4921002",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 28,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Hess Corporation",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 29,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Tax ID:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "a)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 30,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Firm Name:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "b)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 31,
+      "type": "TextItem",
+      "level": 2,
+      "content": "5009",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 32,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Philadelphia Terminal",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 33,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant ID:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 34,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant Name:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "d)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 35,
+      "type": "TextItem",
+      "level": 2,
+      "content": "1650 South 51st Street, Philadelphia; PA 19143",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 36,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant Address:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "e)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 37,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Krotoff Oleg",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 38,
+      "type": "TextItem",
+      "level": 2,
+      "content": "732-750-6183",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 39,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Permit Contact:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "f)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 40,
+      "type": "TextItem",
+      "level": 2,
+      "content": "g",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 41,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Telephone Number:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 42,
+      "type": "TextItem",
+      "level": 2,
+      "content": "5171",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 43,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Petroleum Bulk Stations & Terminals",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 44,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "SIC Code:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "h)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 45,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Description of SIC Code:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 46,
+      "type": "ListItem",
+      "level": 3,
+      "content": "County: Philadelphia",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "j)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 47,
+      "type": "ListItem",
+      "level": 3,
+      "content": "Municipality: Philadelphia",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "k)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 48,
+      "type": "TextItem",
+      "level": 2,
+      "content": "4,420.5 km",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 49,
+      "type": "TextItem",
+      "level": 2,
+      "content": "482.3 km",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 50,
+      "type": "ListItem",
+      "level": 3,
+      "content": "UTM Zone: 18",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "1)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 51,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "UTM North:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 52,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "UTM East:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 53,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Method of Obtaining UTM:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "m)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 54,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.3 Mailing Information",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 55,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Oleg Krotoff",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 56,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Environmental Engineer",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 57,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Name:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 58,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Title:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 59,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Hess Plaza",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 60,
+      "type": "TextItem",
+      "level": 2,
+      "content": "732-750-6183",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 61,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Address:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 62,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Phone:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 63,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Woodbridge; NJ 07095",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 64,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.4 Certification of Truth, Accuracy and Completeness",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 65,
+      "type": "TextItem",
+      "level": 2,
+      "content": "This certification must be signed by a responsible official.  Applications without a signed certification will be returned as incomplete",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 66,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Subject to the penalties of Title 18 Pa. C.S. Section 4904 and 35 P.S. Section 4009 (b) (2), Icertify under penalty of law that, based on information and belief formed after reasonable inquiry, the statements and information contained in this application are true; accurate mnd complete.",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 67,
+      "type": "TextItem",
+      "level": 2,
+      "content": "(Signed)",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 68,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Date",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 69,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Name (Typed)",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 70,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Peter Haid",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 71,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Title:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 72,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Environmental Manager",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 73,
+      "type": "FormLabel",
+      "level": 1,
+      "content": "Please read instructions carefully before completing this application:",
+      "bbox": null,
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    }
+  ],
+  "tables": []
+}

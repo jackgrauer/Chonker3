@@ -1,0 +1,1448 @@
+{
+  "metadata": {
+    "source_file": "/Users/jack/Downloads/righttoknowrequestresultsfortieriidataon4southwes/split_pages/page_0001_enhanced.pdf",
+    "file_name": "page_0001_enhanced.pdf",
+    "document_id": "733bb9ebe3f921b8",
+    "extraction_timestamp": "2025-07-31T22:51:37.923916",
+    "processing_time": 10.152607,
+    "docling_version": "unknown"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "width": 612.0,
+      "height": 792.0
+    }
+  ],
+  "items": [
+    {
+      "index": 0,
+      "type": "FormField",
+      "level": 1,
+      "content": "",
+      "bbox": {
+        "left": 57.027374267578125,
+        "top": 740.5647773742676,
+        "right": 111.21025848388672,
+        "bottom": 688.8308181762695,
+        "width": 54.182884216308594,
+        "height": 51.73395919799805,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "field_type": "text_input"
+      }
+    },
+    {
+      "index": 1,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Air Management Services 321 University Avenue JAN 2 4 2008 Philadelphia PA 19104 4543",
+      "bbox": {
+        "left": 336.3333333333333,
+        "top": 740.3866984049479,
+        "right": 538.3333333333334,
+        "bottom": 704.0533650716146,
+        "width": 202.00000000000006,
+        "height": 36.33333333333326,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 2,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Phone: (215) 685-7572",
+      "bbox": {
+        "left": 412.3333333333333,
+        "top": 707.0533650716146,
+        "right": 517.0,
+        "bottom": 694.3866984049479,
+        "width": 104.66666666666669,
+        "height": 12.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "possible_form_field": true
+      }
+    },
+    {
+      "index": 3,
+      "type": "TextItem",
+      "level": 2,
+      "content": "(215) 685-7593",
+      "bbox": {
+        "left": 446.3333333333333,
+        "top": 695.7200317382812,
+        "right": 516.3333333333334,
+        "bottom": 683.0533650716146,
+        "width": 70.00000000000006,
+        "height": 12.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 4,
+      "type": "TextItem",
+      "level": 2,
+      "content": "SOURCE",
+      "bbox": {
+        "left": 322.3333333333333,
+        "top": 691.0533650716146,
+        "right": 361.6666666666667,
+        "bottom": 677.0533650716146,
+        "width": 39.33333333333337,
+        "height": 14.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 5,
+      "type": "SectionHeaderItem",
+      "level": 1,
+      "content": "CITY OF PHILADELPHIA",
+      "bbox": {
+        "left": 128.66666666666666,
+        "top": 738.7200317382812,
+        "right": 306.6666666666667,
+        "bottom": 722.0533650716146,
+        "width": 178.00000000000003,
+        "height": 16.66666666666663,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 2
+      }
+    },
+    {
+      "index": 6,
+      "type": "TextItem",
+      "level": 1,
+      "content": "DEPARTMENT OF PUBLIC HEALTH PUBLIC HEALTH SERVICES",
+      "bbox": {
+        "left": 132.33333333333334,
+        "top": 721.7200317382812,
+        "right": 295.0,
+        "bottom": 698.3866984049479,
+        "width": 162.66666666666666,
+        "height": 23.33333333333337,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 7,
+      "type": "TextItem",
+      "level": 1,
+      "content": "AIR MANAGEMENT SERVICES",
+      "bbox": {
+        "left": 132.33333333333334,
+        "top": 699.7200317382812,
+        "right": 274.3333333333333,
+        "bottom": 687.7200317382812,
+        "width": 141.99999999999997,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 8,
+      "type": "SectionHeaderItem",
+      "level": 1,
+      "content": "SYNTHETIC MINOR OPERATING PERMIT APPLICATION",
+      "bbox": {
+        "left": 115.33333333333333,
+        "top": 661.0533650716146,
+        "right": 488.3333333333333,
+        "bottom": 646.3866984049479,
+        "width": 373.0,
+        "height": 14.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 2
+      }
+    },
+    {
+      "index": 9,
+      "type": "FormField",
+      "level": 1,
+      "content": "",
+      "bbox": {
+        "left": 183.34768676757812,
+        "top": 114.024169921875,
+        "right": 238.64674377441406,
+        "bottom": 99.2320556640625,
+        "width": 55.29905700683594,
+        "height": 14.7921142578125,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "field_type": "text_input"
+      }
+    },
+    {
+      "index": 10,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "Section 1: General Information",
+      "bbox": {
+        "left": 58.0,
+        "top": 633.7200317382812,
+        "right": 221.66666666666666,
+        "bottom": 621.7200317382812,
+        "width": 163.66666666666666,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 11,
+      "type": "TextItem",
+      "level": 2,
+      "content": "FOR OFFICIAL USE ONLY",
+      "bbox": {
+        "left": 390.6666666666667,
+        "top": 623.3866984049479,
+        "right": 514.6666666666666,
+        "bottom": 612.7200317382812,
+        "width": 123.99999999999994,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 12,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.1 Application Type",
+      "bbox": {
+        "left": 59.333333333333336,
+        "top": 607.7200317382812,
+        "right": 175.0,
+        "bottom": 594.3866984049479,
+        "width": 115.66666666666666,
+        "height": 13.333333333333371,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 13,
+      "type": "TextItem",
+      "level": 2,
+      "content": "OP #: City",
+      "bbox": {
+        "left": 356.96703849613687,
+        "top": 602.002063668469,
+        "right": 402.6666666666667,
+        "bottom": 587.7713331414268,
+        "width": 45.69962817052982,
+        "height": 14.23073052704217,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 14,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Type of permit for which application is made:",
+      "bbox": {
+        "left": 93.0,
+        "top": 593.7200317382812,
+        "right": 274.3333333333333,
+        "bottom": 580.0533650716146,
+        "width": 181.33333333333331,
+        "height": 13.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 15,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Reviewed By:",
+      "bbox": {
+        "left": 356.3333333333333,
+        "top": 577.7200317382812,
+        "right": 415.6666666666667,
+        "bottom": 565.7200317382812,
+        "width": 59.33333333333337,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 16,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Initial",
+      "bbox": {
+        "left": 122.66666666666667,
+        "top": 565.3866984049479,
+        "right": 148.66666666666666,
+        "bottom": 554.7200317382812,
+        "width": 25.999999999999986,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 17,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Synthetic Minor",
+      "bbox": {
+        "left": 226.0,
+        "top": 567.0533650716146,
+        "right": 293.0,
+        "bottom": 553.3866984049479,
+        "width": 67.0,
+        "height": 13.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 18,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Date:",
+      "bbox": {
+        "left": 356.6666666666667,
+        "top": 555.3866984049479,
+        "right": 381.3333333333333,
+        "bottom": 544.7200317382812,
+        "width": 24.66666666666663,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 19,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Renewal",
+      "bbox": {
+        "left": 122.66666666666667,
+        "top": 536.7200317382812,
+        "right": 158.66666666666666,
+        "bottom": 527.386698404948,
+        "width": 35.999999999999986,
+        "height": 9.333333333333258,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 20,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Natural   Minor",
+      "bbox": {
+        "left": 226.66666666666666,
+        "top": 537.3866984049479,
+        "right": 288.0,
+        "bottom": 527.386698404948,
+        "width": 61.33333333333334,
+        "height": 9.999999999999886,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 21,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Comments:",
+      "bbox": {
+        "left": 356.6666666666667,
+        "top": 532.7200317382812,
+        "right": 406.0,
+        "bottom": 522.7200317382812,
+        "width": 49.333333333333314,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 22,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Modification",
+      "bbox": {
+        "left": 122.66666666666667,
+        "top": 509.38669840494794,
+        "right": 176.0,
+        "bottom": 499.38669840494794,
+        "width": 53.33333333333333,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 23,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Other:",
+      "bbox": {
+        "left": 226.66666666666666,
+        "top": 509.38669840494794,
+        "right": 254.0,
+        "bottom": 499.38669840494794,
+        "width": 27.333333333333343,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 24,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.2 Plant Information",
+      "bbox": {
+        "left": 60.0,
+        "top": 486.05336507161456,
+        "right": 176.0,
+        "bottom": 475.38669840494794,
+        "width": 116.0,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 25,
+      "type": "TextItem",
+      "level": 2,
+      "content": "13-4921002",
+      "bbox": {
+        "left": 126.0,
+        "top": 466.72003173828125,
+        "right": 174.66666666666666,
+        "bottom": 456.72003173828125,
+        "width": 48.66666666666666,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 26,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Hess Corporation",
+      "bbox": {
+        "left": 313.0,
+        "top": 466.38669840494794,
+        "right": 382.3333333333333,
+        "bottom": 454.38669840494794,
+        "width": 69.33333333333331,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 27,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Tax ID:",
+      "bbox": {
+        "left": 68.0,
+        "top": 459.38669840494794,
+        "right": 118.66666666666667,
+        "bottom": 449.38669840494794,
+        "width": 50.66666666666667,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "a)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 28,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Firm Name:",
+      "bbox": {
+        "left": 237.33333333333334,
+        "top": 460.72003173828125,
+        "right": 304.0,
+        "bottom": 449.38669840494794,
+        "width": 66.66666666666666,
+        "height": 11.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "b)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 29,
+      "type": "TextItem",
+      "level": 2,
+      "content": "5009",
+      "bbox": {
+        "left": 128.66666666666666,
+        "top": 441.38669840494794,
+        "right": 150.66666666666666,
+        "bottom": 431.38669840494794,
+        "width": 22.0,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 30,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Philadelphia Terminal",
+      "bbox": {
+        "left": 313.6666666666667,
+        "top": 445.05336507161456,
+        "right": 399.0,
+        "bottom": 433.05336507161456,
+        "width": 85.33333333333331,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 31,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant ID:",
+      "bbox": {
+        "left": 68.0,
+        "top": 437.38669840494794,
+        "right": 123.33333333333333,
+        "bottom": 426.05336507161456,
+        "width": 55.33333333333333,
+        "height": 11.333333333333371,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "c)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 32,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant Name:",
+      "bbox": {
+        "left": 237.33333333333334,
+        "top": 438.05336507161456,
+        "right": 305.3333333333333,
+        "bottom": 426.72003173828125,
+        "width": 67.99999999999997,
+        "height": 11.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "d)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 33,
+      "type": "TextItem",
+      "level": 2,
+      "content": "1650 South 51st Street; Philadelphia, PA 19143",
+      "bbox": {
+        "left": 152.33333333333334,
+        "top": 421.72003173828125,
+        "right": 338.3333333333333,
+        "bottom": 409.05336507161456,
+        "width": 185.99999999999997,
+        "height": 12.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 34,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Plant Address:",
+      "bbox": {
+        "left": 68.0,
+        "top": 414.72003173828125,
+        "right": 144.66666666666666,
+        "bottom": 404.05336507161456,
+        "width": 76.66666666666666,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "e)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 35,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Permit Contact:",
+      "bbox": {
+        "left": 68.0,
+        "top": 392.05336507161456,
+        "right": 149.33333333333334,
+        "bottom": 380.72003173828125,
+        "width": 81.33333333333334,
+        "height": 11.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "f)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 36,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Oleg Krotoff",
+      "bbox": {
+        "left": 156.33333333333334,
+        "top": 398.72003173828125,
+        "right": 207.0,
+        "bottom": 385.38669840494794,
+        "width": 50.66666666666666,
+        "height": 13.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 37,
+      "type": "TextItem",
+      "level": 2,
+      "content": "g)",
+      "bbox": {
+        "left": 304.0,
+        "top": 392.05336507161456,
+        "right": 314.6666666666667,
+        "bottom": 380.72003173828125,
+        "width": 10.666666666666686,
+        "height": 11.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 38,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Telephone Number:",
+      "bbox": {
+        "left": 319.6666666666667,
+        "top": 393.72003173828125,
+        "right": 399.0,
+        "bottom": 381.05336507161456,
+        "width": 79.33333333333331,
+        "height": 12.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 39,
+      "type": "TextItem",
+      "level": 2,
+      "content": "732-750-6183",
+      "bbox": {
+        "left": 405.3333333333333,
+        "top": 399.38669840494794,
+        "right": 461.3333333333333,
+        "bottom": 388.72003173828125,
+        "width": 56.0,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 40,
+      "type": "TextItem",
+      "level": 2,
+      "content": "5171",
+      "bbox": {
+        "left": 136.66666666666666,
+        "top": 374.72003173828125,
+        "right": 157.33333333333334,
+        "bottom": 364.72003173828125,
+        "width": 20.666666666666686,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 41,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Petroleum Bulk Stations Terminals",
+      "bbox": {
+        "left": 361.0,
+        "top": 376.38669840494794,
+        "right": 504.6666666666667,
+        "bottom": 365.38669840494794,
+        "width": 143.66666666666669,
+        "height": 11.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 42,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "SIC Code:",
+      "bbox": {
+        "left": 68.66666666666667,
+        "top": 370.05336507161456,
+        "right": 129.33333333333334,
+        "bottom": 358.72003173828125,
+        "width": 60.66666666666667,
+        "height": 11.333333333333314,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "h)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 43,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Description of SIC Code:",
+      "bbox": {
+        "left": 237.33333333333334,
+        "top": 371.05336507161456,
+        "right": 356.3333333333333,
+        "bottom": 358.38669840494794,
+        "width": 118.99999999999997,
+        "height": 12.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "i)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 44,
+      "type": "ListItem",
+      "level": 3,
+      "content": "County: Philadelphia",
+      "bbox": {
+        "left": 67.33333333333333,
+        "top": 349.05336507161456,
+        "right": 171.0,
+        "bottom": 335.38669840494794,
+        "width": 103.66666666666667,
+        "height": 13.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "j)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 45,
+      "type": "ListItem",
+      "level": 3,
+      "content": "k)",
+      "bbox": {
+        "left": 237.33333333333334,
+        "top": 347.38669840494794,
+        "right": 248.66666666666666,
+        "bottom": 336.72003173828125,
+        "width": 11.333333333333314,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 46,
+      "type": "ListItem",
+      "level": 3,
+      "content": "Municipality: Philadelphia",
+      "bbox": {
+        "left": 254.0,
+        "top": 348.72003173828125,
+        "right": 361.0,
+        "bottom": 336.05336507161456,
+        "width": 107.0,
+        "height": 12.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 47,
+      "type": "TextItem",
+      "level": 2,
+      "content": "4,420.5 km",
+      "bbox": {
+        "left": 314.6666666666667,
+        "top": 331.38669840494794,
+        "right": 359.3333333333333,
+        "bottom": 321.38669840494794,
+        "width": 44.66666666666663,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 48,
+      "type": "TextItem",
+      "level": 2,
+      "content": "482.3 km",
+      "bbox": {
+        "left": 464.6666666666667,
+        "top": 332.72003173828125,
+        "right": 503.3333333333333,
+        "bottom": 322.05336507161456,
+        "width": 38.66666666666663,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 49,
+      "type": "ListItem",
+      "level": 3,
+      "content": "UTM Zone: 18",
+      "bbox": {
+        "left": 68.0,
+        "top": 324.72003173828125,
+        "right": 147.33333333333334,
+        "bottom": 314.05336507161456,
+        "width": 79.33333333333334,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "marker": "1)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 50,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "UTM North:",
+      "bbox": {
+        "left": 255.33333333333334,
+        "top": 325.38669840494794,
+        "right": 306.6666666666667,
+        "bottom": 314.72003173828125,
+        "width": 51.33333333333334,
+        "height": 10.666666666666686,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 51,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "UTM East:",
+      "bbox": {
+        "left": 412.0,
+        "top": 326.05336507161456,
+        "right": 458.0,
+        "bottom": 315.38669840494794,
+        "width": 46.0,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 52,
+      "type": "FormLabel",
+      "level": 3,
+      "content": "Method of Obtaining UTM:",
+      "bbox": {
+        "left": 68.66666666666667,
+        "top": 304.38669840494794,
+        "right": 197.66666666666666,
+        "bottom": 290.38669840494794,
+        "width": 129.0,
+        "height": 14.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label",
+        "marker": "m)",
+        "list_level": 0
+      }
+    },
+    {
+      "index": 53,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.3 Mailing Information",
+      "bbox": {
+        "left": 63.333333333333336,
+        "top": 282.38669840494794,
+        "right": 178.66666666666666,
+        "bottom": 266.3866984049479,
+        "width": 115.33333333333331,
+        "height": 16.000000000000057,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 54,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Krotoff Oleg",
+      "bbox": {
+        "left": 105.70999260471713,
+        "top": 261.0103894760481,
+        "right": 154.66666666666666,
+        "bottom": 248.09634066718115,
+        "width": 48.95667406194953,
+        "height": 12.914048808866937,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 55,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Environmental Engineer",
+      "bbox": {
+        "left": 336.3333333333333,
+        "top": 262.72003173828125,
+        "right": 431.6666666666667,
+        "bottom": 249.72003173828125,
+        "width": 95.33333333333337,
+        "height": 13.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 56,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Name:",
+      "bbox": {
+        "left": 68.66666666666667,
+        "top": 254.05336507161462,
+        "right": 96.66666666666667,
+        "bottom": 244.72003173828125,
+        "width": 28.0,
+        "height": 9.333333333333371,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 57,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Title:",
+      "bbox": {
+        "left": 303.3333333333333,
+        "top": 254.72003173828125,
+        "right": 326.0,
+        "bottom": 244.72003173828125,
+        "width": 22.666666666666686,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 58,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Hess Plaza",
+      "bbox": {
+        "left": 123.33333333333333,
+        "top": 236.05336507161462,
+        "right": 168.66666666666666,
+        "bottom": 226.05336507161462,
+        "width": 45.33333333333333,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 59,
+      "type": "TextItem",
+      "level": 2,
+      "content": "732-750-6183",
+      "bbox": {
+        "left": 339.3333333333333,
+        "top": 240.05336507161462,
+        "right": 395.3333333333333,
+        "bottom": 230.05336507161462,
+        "width": 56.0,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 60,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Address:",
+      "bbox": {
+        "left": 69.33333333333333,
+        "top": 232.05336507161462,
+        "right": 106.0,
+        "bottom": 221.38669840494788,
+        "width": 36.66666666666667,
+        "height": 10.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 61,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Phone:",
+      "bbox": {
+        "left": 302.6666666666667,
+        "top": 232.05336507161462,
+        "right": 331.3333333333333,
+        "bottom": 222.72003173828125,
+        "width": 28.66666666666663,
+        "height": 9.333333333333371,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 62,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Woodbridge; NJ 07095",
+      "bbox": {
+        "left": 115.0,
+        "top": 217.05336507161462,
+        "right": 207.0,
+        "bottom": 205.05336507161462,
+        "width": 92.0,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 63,
+      "type": "SectionHeaderItem",
+      "level": 2,
+      "content": "1.4 Certification of Truth; Accuracy and Completeness",
+      "bbox": {
+        "left": 61.333333333333336,
+        "top": 188.05336507161462,
+        "right": 331.0,
+        "bottom": 174.38669840494788,
+        "width": 269.6666666666667,
+        "height": 13.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "header_level": 3
+      }
+    },
+    {
+      "index": 64,
+      "type": "TextItem",
+      "level": 2,
+      "content": "This certification must be signed by a responsible official.  Applications without a signed certification will be returned as incomplete.",
+      "bbox": {
+        "left": 73.33333333333333,
+        "top": 175.38669840494788,
+        "right": 544.0,
+        "bottom": 149.38669840494788,
+        "width": 470.6666666666667,
+        "height": 26.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 65,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Subject to the penalties of Title 18 Pa. C.S. Section 4904 and 35 P.S. Section 4009 (b) (2) Icertify under penalty of law |that, based on information and belief formed after reasonable inquiry; the statements and information contained in this application",
+      "bbox": {
+        "left": 59.0,
+        "top": 149.05336507161462,
+        "right": 529.6666666666666,
+        "bottom": 111.05336507161462,
+        "width": 470.66666666666663,
+        "height": 38.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 66,
+      "type": "TextItem",
+      "level": 2,
+      "content": "(Signed)",
+      "bbox": {
+        "left": 68.33333333333333,
+        "top": 113.72003173828125,
+        "right": 106.33333333333333,
+        "bottom": 101.05336507161462,
+        "width": 38.0,
+        "height": 12.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 67,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Ma1d",
+      "bbox": {
+        "left": 183.0,
+        "top": 116.38669840494788,
+        "right": 241.33333333333334,
+        "bottom": 97.72003173828125,
+        "width": 58.33333333333334,
+        "height": 18.66666666666663,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 68,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Date",
+      "bbox": {
+        "left": 441.3333333333333,
+        "top": 114.05336507161462,
+        "right": 462.6666666666667,
+        "bottom": 103.38669840494788,
+        "width": 21.33333333333337,
+        "height": 10.666666666666742,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 69,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Name (Typed)",
+      "bbox": {
+        "left": 69.0,
+        "top": 102.38669840494788,
+        "right": 129.0,
+        "bottom": 89.72003173828125,
+        "width": 60.0,
+        "height": 12.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 70,
+      "type": "TextItem",
+      "level": 2,
+      "content": "Peter Haid",
+      "bbox": {
+        "left": 135.33333333333334,
+        "top": 101.38669840494788,
+        "right": 178.66666666666666,
+        "bottom": 91.38669840494788,
+        "width": 43.333333333333314,
+        "height": 10.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 71,
+      "type": "FormLabel",
+      "level": 2,
+      "content": "Title:",
+      "bbox": {
+        "left": 375.3333333333333,
+        "top": 102.72003173828125,
+        "right": 398.6666666666667,
+        "bottom": 92.05336507161462,
+        "width": 23.33333333333337,
+        "height": 10.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    },
+    {
+      "index": 72,
+      "type": "TextItem",
+      "level": 2,
+      "content": "EnvironmentaLManager",
+      "bbox": {
+        "left": 406.3333333333333,
+        "top": 101.72003173828125,
+        "right": 501.6666666666667,
+        "bottom": 89.72003173828125,
+        "width": 95.33333333333337,
+        "height": 12.0,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {}
+    },
+    {
+      "index": 73,
+      "type": "FormLabel",
+      "level": 1,
+      "content": "Please read instructions carefully before completing this application:",
+      "bbox": {
+        "left": 266.6666666666667,
+        "top": 53.38669840494788,
+        "right": 535.6666666666666,
+        "bottom": 39.72003173828125,
+        "width": 268.99999999999994,
+        "height": 13.666666666666629,
+        "coord_origin": "CoordOrigin.BOTTOMLEFT"
+      },
+      "page": 1,
+      "confidence": 1.0,
+      "attributes": {
+        "form_type": "label"
+      }
+    }
+  ],
+  "tables": []
+}

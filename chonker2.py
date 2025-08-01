@@ -40,11 +40,38 @@ class Chonker2:
         self.logger = logging.getLogger(__name__)
     
     def _init_docling(self):
-        """Initialize Docling converter"""
+        """Initialize Docling converter with optimized settings"""
         try:
-            # Initialize with default settings - Docling handles spatial layout internally
+            from docling.datamodel.base_models import InputFormat
+            from docling.datamodel.pipeline_options import (
+                PdfPipelineOptions,
+                TableFormerMode,
+                OCRMode
+            )
+            from docling.document_converter import PdfFormatOption
+            
+            # Configure pipeline for maximum accuracy
+            pipeline_options = PdfPipelineOptions(
+                do_ocr=OCRMode.AUTO,  # Auto-detect when OCR is needed
+                do_table_structure=True,  # Extract table structures
+                table_structure_options={
+                    "mode": TableFormerMode.ACCURATE  # Use accurate mode
+                }
+            )
+            
+            # Initialize with optimized settings
+            self.converter = DocumentConverter(
+                format_options={
+                    InputFormat.PDF: PdfFormatOption(
+                        pipeline_options=pipeline_options
+                    )
+                }
+            )
+            self.logger.info("Docling converter initialized with optimized settings")
+        except ImportError:
+            # Fallback for older Docling versions
             self.converter = DocumentConverter()
-            self.logger.info("Docling converter initialized")
+            self.logger.info("Docling converter initialized (default settings)")
         except Exception as e:
             self.logger.error(f"Failed to initialize Docling: {e}")
             raise
@@ -87,14 +114,36 @@ class Chonker2:
             }
             
             # Extract page information if available
-            if hasattr(result.document, 'pages'):
-                for page in result.document.pages:
+            if hasattr(result.document, 'pages') and result.document.pages:
+                for page_idx, page in enumerate(result.document.pages):
+                    # Debug what attributes the page has
+                    if page_idx == 0:
+                        self.logger.debug(f"Page attributes: {[attr for attr in dir(page) if not attr.startswith('_')]}")
+                    
+                    # Try different attribute names
+                    width = getattr(page, 'width', None) or getattr(page, 'size', {}).get('width', 612.0)
+                    height = getattr(page, 'height', None) or getattr(page, 'size', {}).get('height', 792.0)
+                    
+                    # Ensure we have valid dimensions
+                    if width == 0 or width is None:
+                        width = 612.0
+                    if height == 0 or height is None:
+                        height = 792.0
+                        
                     page_info = {
-                        'page_number': getattr(page, 'page_no', 0),
-                        'width': getattr(page, 'width', 0),
-                        'height': getattr(page, 'height', 0)
+                        'page_number': getattr(page, 'page_no', page_idx) + 1,  # 1-based page numbers
+                        'width': float(width),
+                        'height': float(height)
                     }
                     document_data['pages'].append(page_info)
+            else:
+                # Add default page if no page info available
+                self.logger.warning("No page information available, using default US Letter size")
+                document_data['pages'].append({
+                    'page_number': 1,
+                    'width': 612.0,
+                    'height': 792.0
+                })
             
             # Extract all items with spatial information
             item_index = 0
@@ -136,6 +185,8 @@ class Chonker2:
                 json.dump(document_data, f, indent=2, ensure_ascii=False)
             
             self.logger.info(f"Extracted {len(document_data['items'])} items in {processing_time:.2f}s")
+            
+            
             self.logger.info(f"Saved to: {output_file}")
             
             return document_data
@@ -145,12 +196,13 @@ class Chonker2:
             raise
     
     def _extract_item_data(self, item: Any, level: int, index: int) -> Optional[Dict[str, Any]]:
-        """Extract data from a single document item"""
+        """Extract data from a single document item with enhanced form detection"""
         try:
             item_type = type(item).__name__
             
             # Log the actual types Docling provides for debugging
             self.logger.debug(f"Docling item type: {item_type}")
+            
             
             # Base item data
             item_data = {
@@ -170,10 +222,32 @@ class Chonker2:
             elif hasattr(item, 'caption'):
                 item_data['content'] = str(item.caption)
             
-            # Check if this might be a form field
-            content_lower = item_data['content'].lower()
-            if any(indicator in content_lower for indicator in ['name:', 'date:', 'address:', 'phone:', 'email:', 'signature:', 'id:', 'no.', 'number:']):
+            # Enhanced form field detection
+            content = item_data['content'].strip()
+            content_lower = content.lower()
+            
+            # Detect form labels (text ending with colon)
+            if content.endswith(':'):
+                item_data['type'] = 'FormLabel'
+                item_data['attributes']['form_type'] = 'label'
+            
+            # Detect checkboxes
+            elif content in ['[ ]', '[X]', '[x]', '☐', '☑', '□', '■', '▢', '▣']:
+                item_data['type'] = 'Checkbox'
+                item_data['attributes']['checked'] = content in ['[X]', '[x]', '☑', '■', '▣']
+            
+            # Detect form field indicators
+            elif any(indicator in content_lower for indicator in [
+                'name:', 'date:', 'address:', 'phone:', 'email:', 'signature:', 
+                'id:', 'no.', 'number:', 'title:', 'ssn:', 'dob:', 'zip:'
+            ]):
                 item_data['attributes']['possible_form_field'] = True
+                item_data['type'] = 'FormLabel'
+            
+            # Detect underlined areas (common in forms)
+            elif content == '_' * len(content) or content == '-' * len(content):
+                item_data['type'] = 'FormField'
+                item_data['attributes']['field_type'] = 'text_input'
             
             # Extract spatial information
             if hasattr(item, 'prov') and item.prov and len(item.prov) > 0:
@@ -183,18 +257,38 @@ class Chonker2:
                 if hasattr(prov, 'page_no'):
                     item_data['page'] = prov.page_no
                 
-                # Bounding box
+                # Bounding box with validation
                 if hasattr(prov, 'bbox'):
                     bbox = prov.bbox
-                    item_data['bbox'] = {
-                        'left': float(bbox.l),
-                        'top': float(bbox.t),
-                        'right': float(bbox.r),
-                        'bottom': float(bbox.b),
-                        'width': float(bbox.r - bbox.l),
-                        'height': float(bbox.b - bbox.t),
-                        'coord_origin': str(getattr(bbox, 'coord_origin', 'unknown'))
-                    }
+                    # Validate bbox values
+                    if all(hasattr(bbox, attr) for attr in ['l', 't', 'r', 'b']):
+                        left = float(bbox.l)
+                        top = float(bbox.t)
+                        right = float(bbox.r)
+                        bottom = float(bbox.b)
+                        
+                        # Ensure valid dimensions
+                        # For BOTTOMLEFT origin: top > bottom (top is higher Y value)
+                        # For TOPLEFT origin: bottom > top (bottom is higher Y value)
+                        coord_origin = str(getattr(bbox, 'coord_origin', 'BOTTOMLEFT'))
+                        
+                        if 'BOTTOMLEFT' in coord_origin:
+                            valid_bbox = right > left and top > bottom
+                        else:
+                            valid_bbox = right > left and bottom > top
+                            
+                        if valid_bbox:
+                            item_data['bbox'] = {
+                                'left': left,
+                                'top': top,
+                                'right': right,
+                                'bottom': bottom,
+                                'width': right - left,
+                                'height': abs(top - bottom),
+                                'coord_origin': coord_origin
+                            }
+                        else:
+                            self.logger.warning(f"Invalid bbox dimensions for item {index}: {bbox}")
                     
                     # Add relative position for better layout reconstruction
                     # Get page dimensions if available

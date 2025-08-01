@@ -29,6 +29,9 @@ pub enum ItemType {
     Title,
     Header,
     Table,
+    FormLabel,
+    FormField,
+    Checkbox,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

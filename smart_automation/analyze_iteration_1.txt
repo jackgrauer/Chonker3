@@ -1,0 +1,21 @@
+Please analyze the screenshot: iteration_1_20250731_221924.png
+
+The screenshot shows Chonker3, a PDF extraction application.
+- Left panel: Original PDF
+- Right panel: Extracted and rendered content
+
+Please provide specific code changes in this format:
+
+For src/main.rs:
+1. Replace "old code" with "new code"
+2. Change variable_name = old_value to new_value
+3. Add "new code" after "existing code"
+
+Focus on:
+- Text positioning accuracy
+- Font sizes and styles
+- Layout preservation
+- Form field rendering
+- Table structure
+
+Be very specific with exact code snippets that can be automatically applied.

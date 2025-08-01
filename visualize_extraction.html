@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Extraction Visualization</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #canvas-container {
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            overflow: auto;
+        }
+        .text-item {
+            position: absolute;
+            border: 1px solid rgba(0, 0, 255, 0.3);
+            font-size: 12px;
+            padding: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .FormLabel { background: rgba(0, 0, 255, 0.1); }
+        .FormField { background: rgba(0, 255, 0, 0.1); }
+        .SectionHeaderItem { 
+            background: rgba(255, 0, 0, 0.1); 
+            font-weight: bold;
+        }
+        .TextItem { background: rgba(200, 200, 200, 0.1); }
+        #info {
+            margin: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Extraction Visualization</h1>
+    <div id="info">Loading...</div>
+    <div id="canvas-container"></div>
+    
+    <script>
+        fetch('test_extraction.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('canvas-container');
+                const info = document.getElementById('info');
+                
+                // Set page size
+                const pageWidth = data.pages[0].width;
+                const pageHeight = data.pages[0].height;
+                const scale = 1.0; // No scaling for accurate representation
+                
+                container.style.width = pageWidth * scale + 'px';
+                container.style.height = pageHeight * scale + 'px';
+                container.style.position = 'relative';
+                container.style.backgroundColor = 'white';
+                
+                info.innerHTML = `
+                    <strong>Page Size:</strong> ${pageWidth} x ${pageHeight}<br>
+                    <strong>Total Items:</strong> ${data.items.length}<br>
+                    <strong>Scale:</strong> ${scale}
+                `;
+                
+                // Render each item
+                data.items.forEach((item, index) => {
+                    if (!item.bbox) return;
+                    
+                    const div = document.createElement('div');
+                    div.className = 'text-item ' + item.type;
+                    
+                    // Convert BOTTOMLEFT to TOPLEFT coordinates
+                    const left = item.bbox.left * scale;
+                    const top = (pageHeight - item.bbox.top) * scale; // Flip Y
+                    const width = item.bbox.width * scale;
+                    const height = item.bbox.height * scale;
+                    
+                    div.style.left = left + 'px';
+                    div.style.top = top + 'px';
+                    div.style.width = width + 'px';
+                    div.style.height = height + 'px';
+                    div.style.fontSize = '10px';
+                    
+                    div.textContent = item.content || '[empty]';
+                    div.title = `${item.type}: ${item.content}\nPos: (${item.bbox.left.toFixed(1)}, ${item.bbox.top.toFixed(1)})\nSize: ${item.bbox.width.toFixed(1)} x ${item.bbox.height.toFixed(1)}`;
+                    
+                    container.appendChild(div);
+                });
+            })
+            .catch(error => {
+                document.getElementById('info').innerHTML = 'Error loading JSON: ' + error;
+            });
+    </script>
+</body>
+</html>
